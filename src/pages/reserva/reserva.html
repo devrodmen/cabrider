@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>DETALLES</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label>Fecha</ion-label>
+        <ion-datetime displayFormat="MMM, DD, YYYY" max="2056" [(ngModel)]="fecha" name="fecha"></ion-datetime>
+      </ion-item>
+    
+      <ion-item>
+        <ion-icon name="time" item-start></ion-icon>
+        <ion-label>Hora</ion-label>
+        <ion-datetime displayFormat="h:mm A" [(ngModel)]="hora" name="hora"></ion-datetime>
+        
+      </ion-item>
+
+      <ion-item *ngIf="permiso == 2">
+        <ion-label>ÁREA</ion-label>
+        <ion-select [(ngModel)]="gerencia" name="gerencia" interface="popover">
+          <ion-option *ngFor="let area of areas" value="{{area.idarea}}">
+            {{area.descripcion}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="permiso == 2">
+        <ion-label stacked>Centro de Costo</ion-label>
+        <ion-input [(ngModel)]="centro" type="text" centro="centro" name="centro"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-item *ngIf="permiso == 2">
+      <ion-label>TIPO PAGO</ion-label>
+      <ion-select [(ngModel)]="tipopago" name="tipopago" interface="popover">
+        <ion-option *ngFor="let tipopago of tipopagos" value="{{tipopago.idtipopago}}">
+          <span *ngIf="tipopago.idtipopago == 1">{{tipopago.descripcion}} = CREDITO</span>
+          <span *ngIf="tipopago.idtipopago == 2">{{tipopago.descripcion}} = CONTADO</span>
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>TIPO VEHICULO</ion-label>
+      <ion-select [(ngModel)]="modelo" name="modelo" interface="popover">
+        <ion-option *ngFor="let tipovehiculo of tipovehiculos" value="{{tipovehiculo.idtipoauto}}">{{tipovehiculo.descripcion}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="permiso == 2">
+      <ion-label stacked>Autorizado por</ion-label>
+      <ion-input [(ngModel)]="encargado" placeholder="Autorizado por" type="text" id="encargado" name="encargado"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Observación</ion-label>
+      <ion-input [(ngModel)]="observacion" placeholder="Observación" type="text" id="observacion" name="observacion"></ion-input>
+    </ion-item>
+
+    <ion-row *ngIf="permiso == 2">
+      <ion-col width-100>
+        <button ion-button full class="btnContinuar" (click)="continuar()">
+          CONTINUAR
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="permiso == 3">
+      <ion-col width-100>
+        <button ion-button full class="btnReservass" (click)="reservar()">
+          RESERVAR
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,37 @@
+<!--
+  Generated template for the AddPersonalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar Personal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked> Nombres</ion-label>
+      <ion-input [(ngModel)]="nombres" [(ngModel)]="nombres" type="text" id="nombres" name="nombres"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked> DNI</ion-label>
+      <ion-input [(ngModel)]="dni" [(ngModel)]="dni" type="text" id="dni" name="dni"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked> Celular</ion-label>
+      <ion-input [(ngModel)]="celular" [(ngModel)]="celular" type="text" id="celular" name="celular"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-col>
+    <button ion-button (click)="guardarPersonal()">Guardar</button>
+  </ion-col>
+  <ion-col>
+      <button ion-button (click)="regresar()">Regresar</button>
+    </ion-col>
+</ion-content>

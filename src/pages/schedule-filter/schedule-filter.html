@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Regresar</button>
+    </ion-buttons>
+
+    <ion-title>
+      Detalle Reserva
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">  
+  <div class="map-wrapper">
+    <div id="map_canvas_detail"></div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row style="text-align:center;">
+      <ion-col><button ion-button full (click)="detalles()">Ver detalles</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

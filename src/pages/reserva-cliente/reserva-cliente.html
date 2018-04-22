@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PASAJEROS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item *ngIf="permiso == 2">
+    <ion-label>Pasajero</ion-label>
+    <ion-select [(ngModel)]="pasajero" name="pasajero" (ionChange)="agregarPasajero()" interface="popover">
+      <ion-option checked="true" value="-1">- Seleccionar -</ion-option>
+      <ion-option *ngFor="let personal of personales" value="{{personal.peremp_cod}}-{{personal.peremp_nombres}}">{{personal.peremp_nombres}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-grid *ngIf="permiso == 2">
+    <ion-row *ngFor="let pasajero of nompas">
+      <ion-col>
+        {{pasajero.nombre}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list *ngIf="permiso == 2">
+    <button ion-button full (click)="addPersonal()">Registrar Nuevo Personal</button>
+  </ion-list>
+
+  <ion-row>
+    <ion-col width-100>
+      <button ion-button large class="btnContinuar" (click)="continuar()">
+        CONTINUAR
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

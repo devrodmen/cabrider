@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+      <ion-segment-button value="all">
+        Reservas
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngIf="reservas != ''">
+
+    <ion-item-group *ngFor="let res of reservas">
+
+      <ion-item-divider sticky>
+        <ion-label>
+          <b>{{res.fecha}}</b>
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="let data of res.datos">
+
+        <button ion-item (click)="getReservaDetail(data.reserva_idreserva)">
+          <h3>{{data.reserva_horfor}}</h3>
+          <p>
+            {{data.reserva_oridir}} - {{data.reserva_desdir}}
+          </p>
+          <p>
+            <span *ngIf="data.reserva_estado == 1">EN ESPERA</span>
+            <span *ngIf="data.reserva_estado == 2">CONCLUIDA</span>
+            <span *ngIf="data.reserva_estado == 3">RECHAZADA</span>
+            <span *ngIf="data.reserva_estado == 4">EN PROCESO</span>
+          </p>
+        </button>
+      </ion-item-sliding>
+
+    </ion-item-group>
+
+  </ion-list>
+  <ion-list *ngIf="reservas == ''">
+    <ion-item-divider sticky>
+      <ion-label>
+        <b>NO HAY RESERVAS</b>
+      </ion-label>
+    </ion-item-divider>
+  </ion-list>
+</ion-content>

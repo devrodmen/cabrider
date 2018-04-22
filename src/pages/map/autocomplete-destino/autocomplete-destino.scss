@@ -1,0 +1,23 @@
+page-autocomplete-destino {
+    ion-content{
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+    position: relative;
+
+    .bottom{
+    bottom: 0;
+    width: 100%;
+    }
+
+    .request-controls{
+    text-align: center;
+    background: linear-gradient(transparent, map-get($colors2 , light ));
+    }
+
+    ion-input{
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    padding: 5px;
+    }
+}

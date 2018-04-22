@@ -1,0 +1,57 @@
+<!--<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/logo-remisse.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>-->
+
+<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+	<div class="login-container">
+	  <img class="logo" src="./assets/logo-remisse.png" />
+	  
+	  <!--*********** Form ***********-->
+	  <form #loginForm="ngForm" novalidate>
+		<ion-item>
+				<ion-label floating>Usuario</ion-label>
+			<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+				required>
+			</ion-input>
+		</ion-item>
+		<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+			Usuario es necesario
+		</p>
+		<ion-item>
+			<ion-label floating>Contraseña</ion-label>
+			<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+			</ion-input>
+		</ion-item>
+		<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+			Contraseña es necesario
+		</p>
+
+
+		<ion-row responsive-sm>
+			<ion-col>
+				<button ion-button (click)="onLogin(loginForm)" type="submit" block color="blue2">Ingresar</button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-label>Registrarme como:</ion-label>
+		</ion-row>
+		<div class="ion-row">
+			<ion-col>
+				<button ion-button (click)="onSignup(2)" color="blue2" block>Empresa</button>
+			</ion-col>
+			<ion-col>
+				<button ion-button (click)="onSignup(3)" color="blue2" block>Cliente</button>
+			</ion-col>
+		</div>
+	</form>
+	</div>
+  
+  </ion-content>
+  <ion-footer>
+	<!--<button class="bottom" ion-button  type="button"  clear full color="light" (click)="forgot()">Olvidaste tu contraseña? </button>-->
+  </ion-footer>
+  

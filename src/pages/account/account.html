@@ -1,0 +1,33 @@
+<!--<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/logo-remisse.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <div padding-top text-center *ngIf="username">
+    <img *ngIf="imagen != ''" src="http://144.217.7.226/remisse21/public/personal/imagenes/{{imagen}}" alt="avatar">
+    <img *ngIf="imagen == ''" src="http://144.217.7.226/remisse21/public/personal/imagenes/user.jpg" alt="avatar">
+    <h2>{{nombres}}</h2>
+
+    <ion-list inset>
+      <button ion-item (click)="getImage()">Actualizar Foto</button>
+      <!--<button ion-item (click)="changePassword()">Cambiar Contraseña</button>-->
+      <button ion-item (click)="logout()">Salir</button>
+    </ion-list>
+  </div>
+  <ion-item>
+    <button ion-button (click)="uploadFile()">Actualizar</button>
+  </ion-item>
+</ion-content>

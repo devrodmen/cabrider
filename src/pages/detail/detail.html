@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalle Reserva</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>Datos de reserva</ion-list-header>
+    <!--Datos movil-->
+    <ion-item>
+      <ion-label *ngIf="datos.reserva_estado == 1">ESTADO: EN ESPERA</ion-label>
+      <ion-label *ngIf="datos.reserva_estado == 2">ESTADO: CONCLUIDA</ion-label>
+      <ion-label *ngIf="datos.reserva_estado == 3">ESTADO: RECHAZADA</ion-label>
+      <ion-label *ngIf="datos.reserva_estado == 4">ESTADO: EN PROCESO</ion-label>
+      <ion-label *ngIf="datos.reserva_estado == 5">ESTADO: CONCLUIDA</ion-label>
+    </ion-item>
+    <div class="persona_imagen">
+      <img class="circle" *ngIf="datos.persona_imagen != null" src="{{person_image}}">
+    </div>
+    <ion-item *ngIf="datos.movil_nombres != null">
+      <ion-label >CONDUCTOR:{{datos.movil_nombres}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="datos.movil_numero != null">
+      <ion-label>N° MOVIL: {{datos.movil_numero}}</ion-label>
+    </ion-item>
+
+    <!--Imagenes-->
+    <div class="movil_imagen">
+      <img class="circle" *ngIf="datos.movil_imagen != null" src="{{movil_image}}" >
+    </div>
+
+    <ion-item *ngIf="datos.movil_placa != null">
+      <ion-label>PLACA: {{datos.movil_placa}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="datos.movil_marca != null">
+      <ion-label>MARCA: {{datos.movil_marca}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="datos.movil_color != null">
+      <ion-label>COLOR: {{datos.movil_color}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="datos.movil_modelo != null">
+      <ion-label>MODELO: {{datos.movil_modelo}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="datos.movil_tipo != null">
+      <ion-label>TIPO: {{datos.movil_tipo}}</ion-label>
+    </ion-item>
+    
+
+    <ion-item *ngIf="datos.movil_placa == null">
+      <ion-label>Aún no tiene una móvil asignada</ion-label>
+    </ion-item>
+    
+    <button ion-button full>TARIFA : {{datos.reserva_tarifa}}</button>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row style="text-align:center;">
+      <ion-col><button ion-button full (click)="retroceder()">RETROCEDER</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
