@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NavParams, ViewController, IonicPage, NavController, ModalController } from 'ionic-angular';
 
@@ -35,7 +35,7 @@ export class ScheduleFilterPage{
   public icons = {
     start: new google.maps.MarkerImage(
     // URL
-    'http://144.217.7.226/remisse21/public/markers/home-2.png',
+    'http://rfacturacion.remisse21.com.pe/public/markers/home-2.png',
     // (width,height)
     new google.maps.Size(40, 40),
     // The origin point (x,y)
@@ -44,7 +44,7 @@ export class ScheduleFilterPage{
     new google.maps.Point(22, 32)),
     end: new google.maps.MarkerImage(
     // URL
-    'http://144.217.7.226/remisse21/public/markers/finish.png',
+    'http://rfacturacion.remisse21.com.pe/public/markers/finish.png',
     // (width,height)
     new google.maps.Size(40, 40),
     // The origin point (x,y)
@@ -53,7 +53,7 @@ export class ScheduleFilterPage{
     new google.maps.Point(22, 32)),
     car: new google.maps.MarkerImage(
     // URL
-    'http://144.217.7.226/remisse21/public/markers/car.png',
+    'http://rfacturacion.remisse21.com.pe/public/markers/car.png',
     // (width,height)
     new google.maps.Size(40, 40),
     // The origin point (x,y)
@@ -127,8 +127,8 @@ export class ScheduleFilterPage{
 
     me.data.getReservaDetail(idreserva).then((result) => {
       me.datos = result;
-      me.person_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.persona_imagen;
-      me.movil_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.movil_imagen;
+      me.person_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.persona_imagen;
+      me.movil_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.movil_imagen;
       if(me.datos.reserva_estado != 4) {
         me.construir(
           me.datos.movil_placa,

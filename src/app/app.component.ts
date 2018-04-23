@@ -181,10 +181,10 @@ export class ConferenceApp {
           });
           alert.present();
         } else if (tipo == "anular") {
-          let obj = {
+          /*let obj = {
             datos: idreserva,
             data: datosRes
-          };
+          };*/
           
           let alert = me.alertCtrl.create({
             title: "Reserva rechazada",

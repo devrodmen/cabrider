@@ -1,6 +1,6 @@
-import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+/*import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
-import { Camera } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';*/
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -8,7 +8,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+//import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IonicStorageModule } from '@ionic/storage';
@@ -41,11 +41,6 @@ import { IonRating } from '../components/ion-rating/ion-rating';
  * Angular Fire
  */
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-
-
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 import { UserDataLogin } from '../providers/user-data-login';
@@ -58,14 +53,7 @@ import { AuthProvider } from '../providers/auth/auth';*/
  */
 import { ReservaService } from '../services/reservas.service';
 import { CordsProvider } from '../providers/cords/cords';
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyCWnsuUCQxGOVoKjtY4hnWPWHtWUab6PXw",
-  authDomain: "remisse21.firebaseapp.com",
-  databaseURL: "https://remisse21.firebaseio.com",
-  storageBucket: "remisse21.appspot.com",
-  messagingSenderId: '895017330649'
-};
+import { HomePage } from '../pages/home/home';
 
 @NgModule({
   declarations: [
@@ -89,7 +77,8 @@ export const firebaseConfig = {
     ActualizarInfoPage,
     CalificatePage,
     DetailPage,
-    IonRating
+    IonRating,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -108,10 +97,7 @@ export const firebaseConfig = {
         { component: SignupPage, name: 'SignupPage', segment: 'signup' }
       ]
     }),
-    IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -134,7 +120,8 @@ export const firebaseConfig = {
     RegisterPage,
     ActualizarInfoPage,
     CalificatePage,
-    DetailPage
+    DetailPage,
+    HomePage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
@@ -142,17 +129,17 @@ export const firebaseConfig = {
     UserData,
     Data,
     UserDataLogin,
-    InAppBrowser,
+    //InAppBrowser,
     SplashScreen,
     /*FirebaseDbProvider,
     AuthProvider,*/
     ReservaService,
-    CordsProvider,
+    CordsProvider/*,
     FileTransfer,
-    //FileUploadOptions,
+    FileUploadOptions,
     FileTransferObject,
     File,
-    Camera
+    Camera*/
   ]
 })
 export class AppModule { }

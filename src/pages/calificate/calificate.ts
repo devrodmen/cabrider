@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import { Data } from '../../providers/data';
 
-import { MapPage } from '../../pages/map/map/map';
-import { SchedulePage } from '../../pages/schedule/schedule';
+//import { MapPage } from '../../pages/map/map/map';
+//import { SchedulePage } from '../../pages/schedule/schedule';
 
 /**
  * Generated class for the CalificatePage page.

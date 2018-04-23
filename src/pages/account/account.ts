@@ -1,5 +1,5 @@
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+/*import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { Camera, CameraOptions } from '@ionic-native/camera';*/
 
 import { Component } from '@angular/core';
 
@@ -39,9 +39,9 @@ export class AccountPage {
     public storage: Storage,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    public data: Data,
+    public data: Data/*,
     private transfer: FileTransfer,
-    private camera: Camera
+    private camera: Camera*/
   ) {
 
     //me.tabBarElement = document.querySelector('.tabbar');
@@ -65,7 +65,7 @@ export class AccountPage {
   }*/
 
   getImage() {
-    const options: CameraOptions = {
+    /*const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
@@ -76,7 +76,7 @@ export class AccountPage {
     }, (err) => {
       console.log(err);
       this.presentToast(err);
-    });
+    });*/
   }
 
   uploadFile() {
@@ -86,7 +86,7 @@ export class AccountPage {
       content: "Subiendo..."
     });
     loader.present();
-    const fileTransfer: FileTransferObject = this.transfer.create();
+    /*const fileTransfer: FileTransferObject = this.transfer.create();
   
     let options: FileUploadOptions = {
       fileKey: 'ionicfile',
@@ -96,18 +96,18 @@ export class AccountPage {
       headers: {}
     }
   
-    fileTransfer.upload(this.imageURI, 'http://144.217.7.226/remisse21/apk/updatePhoto/' + me.idpersona + "/" + me.documento
+    fileTransfer.upload(this.imageURI, 'http://rfacturacion.remisse21.com.pe/apk/updatePhoto/' + me.idpersona + "/" + me.documento
     , options)
       .then((data) => {
       console.log(data);
-      this.imageFileName = "http://144.217.7.226/remisse21/public/personal/imagenes/user.jpg"
+      this.imageFileName = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/user.jpg"
       loader.dismiss();
       this.presentToast("Imagen cargada satisfactoriamente");
     }, (err) => {
       console.log(err);
       loader.dismiss();
       this.presentToast(err);
-    });
+    });*/
   }
 
   presentToast(msg) {

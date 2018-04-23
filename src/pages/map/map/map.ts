@@ -191,6 +191,6 @@ export class MapPage {
 
     console.log(myData);
 
-    const reserva = this.nav.push(ReservaPage, {data: myData});
+    this.nav.push(ReservaPage, {data: myData});
   }
 }

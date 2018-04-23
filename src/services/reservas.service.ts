@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database/database';
+//import { AngularFireDatabase } from 'angularfire2/database/database';
 
 @Injectable()
 export class ReservaService{
-    constructor(public afDB: AngularFireDatabase) {}
+    constructor() {}
 
-    getReservas() {
+    /*getReservas() {
         return this.afDB.list('reservas/');
-    }
+    }*/
 }

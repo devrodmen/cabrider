@@ -8,7 +8,7 @@ import { AccountPage } from '../pages/account/account';
 
 import { UserDataLogin } from '../providers/user-data-login';
 
-let apiUrl = 'http://144.217.7.226/remisse21/apk/';
+let apiUrl = 'http://rfacturacion.remisse21.com.pe/apk/';
 
 @Injectable()
 export class Data {

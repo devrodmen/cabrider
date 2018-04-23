@@ -213,6 +213,6 @@ export class ReservaPage {
       observacion: me.observacion
     }
 
-    const reservaSecond = this.navCtrl.push(ReservaClientePage, {data: myData});
+    this.navCtrl.push(ReservaClientePage, {data: myData});
   }
 }

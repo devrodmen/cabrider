@@ -46,14 +46,14 @@ export class DetailPage {
 
     if(idreserva == null || idreserva == undefined) {
       me.datos = dataRes;
-      me.person_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.persona_imagen;
-      me.movil_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.movil_imagen;
+      me.person_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.persona_imagen;
+      me.movil_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.movil_imagen;
     }
 
     me.data.getReservaDetail(idreserva).then((result) => {
       me.datos = result;
-      me.person_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.persona_imagen;
-      me.movil_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.movil_imagen;
+      me.person_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.persona_imagen;
+      me.movil_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.movil_imagen;
     });
   }
 

@@ -13,7 +13,6 @@ import { UserOptions } from '../../interfaces/user-options';
 import { AccountPage } from '../account/account';
 import { RegisterPage } from '../register/register';
 import { ActualizarInfoPage } from '../actualizar-info/actualizar-info';
-import { OneSignal } from '@ionic-native/onesignal';
 
 @Component({
   selector: 'page-login',
@@ -27,8 +26,8 @@ export class LoginPage {
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
   responseData : any;
   loginForm: any;
-  public backgroundImage: any = "http://144.217.7.226/remisse21/public/app/bg1.jpg";
-  imgLogo: any = "http://144.217.7.226/remisse21/public/app/medium_150.70391061453px_1202562_easyicon.net.png";
+  public backgroundImage: any = "http://rfacturacion.remisse21.com.pe/public/app/bg1.jpg";
+  imgLogo: any = "http://rfacturacion.remisse21.com.pe/public/app/medium_150.70391061453px_1202562_easyicon.net.png";
   errorMessage: String;
   login: UserOptions = { username: '', password: '', imagen: '',idpersona: '',permiso:'',nombres:'',email:'',estado: '',nombrerol: '',dni:'' };
   submitted = false;
@@ -39,8 +38,7 @@ export class LoginPage {
     public alertController: AlertController,
     public userData: UserData,
     public userDataLogin: UserDataLogin,
-    public storage: Storage,
-    private oneSignal: OneSignal
+    public storage: Storage
   ) {
     //this.tabBarElement = document.querySelector('.tabbar');
   }

@@ -17,12 +17,12 @@
 
 <ion-content class="outer-content">
   <div padding-top text-center *ngIf="username">
-    <img *ngIf="imagen != ''" src="http://144.217.7.226/remisse21/public/personal/imagenes/{{imagen}}" alt="avatar">
-    <img *ngIf="imagen == ''" src="http://144.217.7.226/remisse21/public/personal/imagenes/user.jpg" alt="avatar">
+    <img *ngIf="imagen != ''" src="http://rfacturacion.remisse21.com.pe/public/personal/imagenes/{{imagen}}" alt="avatar">
+    <img *ngIf="imagen == ''" src="http://rfacturacion.remisse21.com.pe/public/personal/imagenes/user.jpg" alt="avatar">
     <h2>{{nombres}}</h2>
 
     <ion-list inset>
-      <button ion-item (click)="getImage()">Actualizar Foto</button>
+      <!--<button ion-item (click)="getImage()">Actualizar Foto</button>-->
       <!--<button ion-item (click)="changePassword()">Cambiar Contraseña</button>-->
       <button ion-item (click)="logout()">Salir</button>
     </ion-list>
