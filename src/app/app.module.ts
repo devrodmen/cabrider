@@ -1,6 +1,6 @@
-/*import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
-import { Camera } from '@ionic-native/camera';*/
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+//import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -134,12 +134,12 @@ import { HomePage } from '../pages/home/home';
     /*FirebaseDbProvider,
     AuthProvider,*/
     ReservaService,
-    CordsProvider/*,
+    CordsProvider,
     FileTransfer,
-    FileUploadOptions,
+    //FileUploadOptions,
     FileTransferObject,
-    File,
-    Camera*/
+    //File,
+    Camera
   ]
 })
 export class AppModule { }
