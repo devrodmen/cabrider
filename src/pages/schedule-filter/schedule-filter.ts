@@ -32,6 +32,8 @@ export class ScheduleFilterPage{
   datos: any = [];
   public person_image;
   public movil_image;
+  public load = 0;
+  public idreserva;
   public icons = {
     start: new google.maps.MarkerImage(
     // URL
@@ -75,13 +77,24 @@ export class ScheduleFilterPage{
     
     setInterval(() => {
       this.updateMap();
-    }, 120000);
+    }, 1000);
+  }
+
+  dismiss(){
+    this.viewCtrl.dismiss();
   }
 
   ionViewDidLoad() {
-    let idreserva = this.navParams.get('datos');
+    this.load = 1;
+    this.idreserva = this.navParams.get('datos');
     this.map = this.iniciarMapa();
-    this.getReservaDetail(idreserva);
+    this.getReservaDetail(this.idreserva);
+  }
+
+  ionViewWillLeave(){
+    //if(this.load = 1){
+      //this.viewCtrl.dismiss();
+    //}
   }
 
   iniciarMapa() {
@@ -149,9 +162,7 @@ export class ScheduleFilterPage{
     });
   }
 
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
+  
 
   /** 
    * Construir mapa

@@ -16,7 +16,7 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Observación:</ion-label>
-    <ion-input type="text" placeholder="Ingresar Observación" [(ngModel)]="observacion"></ion-input>
+    <ion-textarea type="text" placeholder="Ingresar Observación" [(ngModel)]="observacion"></ion-textarea>
   </ion-item>
   <ion-item>
     <ion-rating [lectura]="false" (ionClick)="log($event)"></ion-rating>

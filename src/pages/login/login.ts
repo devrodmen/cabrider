@@ -64,17 +64,7 @@ export class LoginPage {
       
       this.userDataLogin.postData(userData, 'iniciarSesionCliente').then((response) => {
         me.responseData = response;
-        if(response != false) {
-          
-          /*var notificationOpenedCallback = function(jsonData) {
-            console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-          };
-      
-          window["plugins"].OneSignal
-            .startInit("5399e703-5c11-4c3e-b11d-075c9896b128", "955681932238")
-            .handleNotificationOpened(notificationOpenedCallback)
-            .endInit();*/
-      
+        if(response != false) {      
           window["plugins"].OneSignal
             .getIds(function(id) {
               var data = (

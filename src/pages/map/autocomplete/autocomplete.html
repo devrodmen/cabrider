@@ -26,7 +26,7 @@
         <ion-item>
           <ion-input placeholder="Ingresar origen" [(ngModel)]="autocomplete.origen" (keyup)="updateSearch('origen')" value="{{autocomplete.origen}}"></ion-input>
         </ion-item>
-        <ion-item *ngFor="let o of autocompleteOrigen" tappable (click)="chooseItem(o.description,'origen')" width-100>
+        <ion-item *ngFor="let o of autocompleteOrigen" (click)="chooseItem(o.description,'origen')" width-100>
           <ion-icon name="pin"></ion-icon> {{ o.description }}
         </ion-item>
         <ion-item>

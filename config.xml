@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="remisse21.clientes" version="0.1.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="remisse21.clientes" version="2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Remisse21-clientes</name>
     <description>Remisse21 para clientes.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -86,5 +86,5 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="SE NECESITA ACCEDER A LA BIBLIOTECA" />
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="SE NECESITA ACCDER A LA BIBLIOTECA" />
     </plugin>
-    <engine name="ios" spec="4.5.4" />
+    <engine name="ios" spec="4.5.5" />
 </widget>

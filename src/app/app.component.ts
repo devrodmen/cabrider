@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map/map';
-import { TabsPage } from '../pages/tabs-page/tabs-page';
+//import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { ActualizarInfoPage } from '../pages/actualizar-info/actualizar-info';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
@@ -43,10 +43,9 @@ export class ConferenceApp {
   // the login page disables the left menu
   
   loggedInPages: PageInterface[] = [
-    { title: 'Reservas', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'car' },
-    { title: 'Nueva Reserva', name: 'MapPage', component: MapPage, tabComponent: MapPage, index: 1, icon: 'map' },
+    { title: 'Reservas', name: 'SchedulePage', component: SchedulePage, icon: 'car' },
+    { title: 'Nueva Reserva', name: 'MapPage', component: MapPage, icon: 'map' },
     { title: 'Perfil', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    //{ title: 'Soporte', name: 'SupportPage', component: SupportPage, icon: 'help' },
     { title: 'Cerrar Sesión', name: 'LoginPage', component: LoginPage, icon: 'log-out', logsOut: true }
   ];
   
@@ -102,7 +101,6 @@ export class ConferenceApp {
         me.storage.get('documento').then((documento) => {
           if(documento != null) {
             if (page.logsOut === true) {
-              // Give the menu time to close before changing to logged out
               me.userData.logout();
               me.rootPage = LoginPage;
             } else {
@@ -110,7 +108,6 @@ export class ConferenceApp {
             }
           } else {
             if (page.logsOut === true) {
-              // Give the menu time to close before changing to logged out
               me.userData.logout();
               me.rootPage = LoginPage;
             } else {
@@ -161,13 +158,13 @@ export class ConferenceApp {
             data: datosRes
           };
 
-          let alert = me.alertCtrl.create({
+          /*let alert = me.alertCtrl.create({
             title: "Movil asignada",
             message: "Se le asignó una movil",
             buttons: ['Ok']
           });
-          alert.present();
-
+          alert.present();*/
+          
           //me.nav.setRoot(ScheduleFilterPage, obj);
           
 
@@ -208,8 +205,6 @@ export class ConferenceApp {
 
   isActive(page: PageInterface) {
     let childNav = this.nav.getActiveChildNavs()[0];
-
-    // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
         return 'primary';

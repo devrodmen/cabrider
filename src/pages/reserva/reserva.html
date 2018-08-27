@@ -23,7 +23,7 @@
 
       <ion-item *ngIf="permiso == 2">
         <ion-label>ÁREA</ion-label>
-        <ion-select [(ngModel)]="gerencia" name="gerencia" interface="popover">
+        <ion-select [(ngModel)]="gerencia" name="gerencia">
           <ion-option *ngFor="let area of areas" value="{{area.idarea}}">
             {{area.descripcion}}
           </ion-option>
@@ -37,7 +37,7 @@
     </ion-list>
     <ion-item *ngIf="permiso == 2">
       <ion-label>TIPO PAGO</ion-label>
-      <ion-select [(ngModel)]="tipopago" name="tipopago" interface="popover">
+      <ion-select [(ngModel)]="tipopago" name="tipopago">
         <ion-option *ngFor="let tipopago of tipopagos" value="{{tipopago.idtipopago}}">
           <span *ngIf="tipopago.idtipopago == 1">{{tipopago.descripcion}} = CREDITO</span>
           <span *ngIf="tipopago.idtipopago == 2">{{tipopago.descripcion}} = CONTADO</span>
@@ -46,7 +46,7 @@
     </ion-item>
     <ion-item>
       <ion-label>TIPO VEHICULO</ion-label>
-      <ion-select [(ngModel)]="modelo" name="modelo" interface="popover">
+      <ion-select [(ngModel)]="modelo" name="modelo">
         <ion-option *ngFor="let tipovehiculo of tipovehiculos" value="{{tipovehiculo.idtipoauto}}">{{tipovehiculo.descripcion}}</ion-option>
       </ion-select>
     </ion-item>

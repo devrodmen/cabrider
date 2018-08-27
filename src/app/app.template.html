@@ -32,17 +32,6 @@
     </ion-header>
 
     <ion-content class="outer-content">
-
-      <ion-list>
-        <ion-list-header>
-          Navegación
-        </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          {{p.title}}
-        </button>
-      </ion-list>
-
       <ion-list>
         <ion-list-header>
           Cuenta

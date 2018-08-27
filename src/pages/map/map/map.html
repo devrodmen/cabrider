@@ -8,18 +8,42 @@
 </ion-header>
 
 <ion-content class="map-page">
+  <div *ngIf="map == ''" padding>
+    <p>
+      Para realizar una reserva debe seguir los siguientes pasos:
+    </p>
+    <p>
+      <ion-list>
+        <ion-item>
+          <ion-icon color="primary" name="pin" item-start></ion-icon>
+          <ion-label>Definir las Rutas</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="primary" name="calendar" item-start></ion-icon>
+          <ion-label>Definir Fecha y Hora</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="primary" name="bus" item-start></ion-icon>
+          <ion-label>Definir Tipo de Unidad</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="secondary" name="checkmark-circle" item-start></ion-icon>
+          <ion-label>Confirmar Reserva</ion-label>
+        </ion-item>
+      </ion-list>
+    </p>
+  </div>
   <div class="map-wrapper">
-    <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
+    <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas">
+    </div>
   </div>
   <div class="bottom request-controls">
     <ion-row>
-      <ion-col width-50>
-        <button ion-button large class="btnDefinir" (click)="openModal()">
-            DEFINIR
+      <ion-col width-100>
+        <button full ion-button color="light" large class="btnDefinir" (click)="openModal()">
+          DEFINIR RUTA
         </button>
-      </ion-col>
-      <ion-col width-50>
-        <button ion-button large class="btnContinuar" (click)="continuar()">
+        <button full ion-button large class="btnContinuar" (click)="continuar()">
           CONTINUAR
         </button>
       </ion-col>

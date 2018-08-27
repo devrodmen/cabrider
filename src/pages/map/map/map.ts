@@ -11,9 +11,7 @@ import { Platform, ViewController, NavController, ModalController } from 'ionic-
 import { AutocompletePage } from '../autocomplete/autocomplete';
 import { ReservaPage } from '../../reserva/reserva';
 
-
 declare var google: any;
-
 
 @Component({
   selector: 'page-map',
@@ -32,16 +30,21 @@ export class MapPage {
   public start_location;
   public autocompleteItems;
   public autocomplete;
-  public origen;
-  public origenexacto;
-  public destino;
-  public destinoexacto;
+  public origen = '';
+  public origenexacto = '';
+  public destino = '';
+  public destinoexacto = '';
   latitude: number = 0;
   longitude: number = 0;
   public origlat;
   public origlon;
   public destlat;
   public destlon;
+
+
+  public map = '';
+  public mapEle;
+
   originPlaceId;
   destinationPlaceId;
   geo: any;
@@ -66,20 +69,20 @@ export class MapPage {
     this.travelMode = 'DRIVING';
     this.item = [];
     this.item2 = [];
+    this.map = '';
     /**
      * Autocomplete places
      */
   }
 
-  ionViewDidLoad() {
+  /*ionViewDidLoad() {
     let me = this;
       this.confData.getMap().subscribe((mapData: any) => {
         var mapEle = this.mapElement.nativeElement;
 
         var map = new google.maps.Map(mapEle, {
-          center: {lat: -16.358803, lng: -71.5510502},
-          zoom: 16,
-          disableDefaultUI: true
+          center: mapData.find((d: any) => d.center),
+          zoom: 16
         });
 
         me.directionsService = new google.maps.DirectionsService;
@@ -99,31 +102,15 @@ export class MapPage {
           me.destino = info.end_address;
         });
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            map.setCenter(pos);
-
-          }, function() {
-          });
-        } else {
-        }
 
         google.maps.event.addListenerOnce(map, 'idle', () => {
           mapEle.classList.add('show-map');
         });
       });
-  }
-
-  Ondismiss() {
-    this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));
-  }
+  }*/
 
   openModal() {
+    let me = this;
     const autocomplete = this.modal.create(AutocompletePage);
     autocomplete.present();
 
@@ -133,6 +120,37 @@ export class MapPage {
         if(data === undefined)  {
           
         } else {
+          
+          me.mapEle = this.mapElement.nativeElement;
+          if(me.mapEle != undefined) {
+            me.map = new google.maps.Map(me.mapEle, {
+              center: {lat: -16.358803, lng: -71.5510502},
+              zoom: 16,
+              disableDefaultUI: true
+            });
+        
+            me.directionsService = new google.maps.DirectionsService;
+            me.directionsDisplay = new google.maps.DirectionsRenderer({
+              draggable: true,
+              map: me.map
+            });
+        
+            me.directionsDisplay.addListener('directions_changed', function() {
+              let directions = me.directionsDisplay.getDirections();
+              let info = directions.routes[0].legs[0];
+              me.origlat = info.start_location.lat();
+              me.origlon = info.start_location.lng();
+              me.destlat = info.end_location.lat();
+              me.destlon = info.end_location.lng();
+              me.origen = info.start_address;
+              me.destino = info.end_address;
+            });
+        
+            google.maps.event.addListenerOnce(me.map, 'idle', () => {
+              me.mapEle.classList.add('show-map');
+            });
+          }
+
           this.origen = data.origen;
           this.origenexacto = data.origenexacto;
           this.destinoexacto = data.destinoexacto;
@@ -153,8 +171,8 @@ export class MapPage {
   route(data) {
     let me = this;
     me.directionsService.route({
-      origin: data.orilat + "," + data.orilon/*{'placeId': data.originPlaceId}*/,
-      destination: data.deslat + "," + data.deslon/*{'placeId': data.destinationPlaceId}*/,
+      origin: data.orilat + "," + data.orilon,
+      destination: data.deslat + "," + data.deslon,
       travelMode: this.travelMode
     }, function(response, status) {
       if(status === 'OK') {
@@ -176,21 +194,29 @@ export class MapPage {
   }
 
   continuar() {
-    const myData = {
-      origenplaceid: this.originPlaceId,
-      origen: this.origen,
-      origenexacto: this.origenexacto,
-      origenlat: this.origlat,
-      origenlon: this.origlon,
-      destinoplaceid: this.destinationPlaceId,
-      destino: this.destino,
-      destinoexacto: this.destinoexacto,
-      destinolat: this.destlat,
-      destinolon: this.destlon
+    let me = this;
+    if(me.origen == '' || me.origenexacto == '' || me.destino == '' || me.destinoexacto == ''){
+      alert("Debe llenar todos los campos para poder continuar.");
+      
+    } else {
+      console.log(me.origen);
+      console.log(me.origenexacto);
+      console.log(me.destino);
+      console.log(me.destinoexacto);
+      const myData = {
+        origenplaceid: this.originPlaceId,
+        origen: this.origen,
+        origenexacto: this.origenexacto,
+        origenlat: this.origlat,
+        origenlon: this.origlon,
+        destinoplaceid: this.destinationPlaceId,
+        destino: this.destino,
+        destinoexacto: this.destinoexacto,
+        destinolat: this.destlat,
+        destinolon: this.destlon
+      }
+
+      this.nav.push(ReservaPage, {data: myData});
     }
-
-    console.log(myData);
-
-    this.nav.push(ReservaPage, {data: myData});
   }
 }

@@ -14,12 +14,7 @@ page-autocomplete {
     background: linear-gradient(transparent, map-get($colors2 , light ));
     }
 
-    ion-input{
-    border: 1px solid black;
-    border-radius: 10px;
-    background: white;
-    padding: 5px;
-    }
+    
 
     .pac-container {
         z-index: 10000 !important

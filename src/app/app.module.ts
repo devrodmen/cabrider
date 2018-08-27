@@ -87,7 +87,7 @@ import { HomePage } from '../pages/home/home';
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
         { component: ReservaPage, name: 'ReservaPage', segment: 'reserva-page' },
-        { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
+        { component: SchedulePage, name: 'SchedulePage', segment: 'schedule' },
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: MapPage, name: 'MapPage', segment: 'map-page' },

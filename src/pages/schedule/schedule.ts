@@ -34,8 +34,10 @@ export class SchedulePage {
   excludeTracks: any = [];
   shownSessions: any = [];
   groups: any = [];
+
   confDate: string;
   reservas: any = [];
+  public scheduleFilterPage;
 
   constructor(
     public alertCtrl: AlertController,
@@ -57,6 +59,10 @@ export class SchedulePage {
     this.updateSchedule();
   }*/
 
+  /*ionViewWillLeave(){
+    this.updateSchedule();
+  }*/
+
   updateSchedule() {
     let me = this;
     me.userData.getInt('idusuario').then((idusuario) => {
@@ -71,8 +77,9 @@ export class SchedulePage {
   }
 
   presentFilter(idreserva) {
-    let modal = this.modalCtrl.create(ScheduleFilterPage, {datos: idreserva});
-    modal.present();
+    let me = this;
+    me.scheduleFilterPage = this.modalCtrl.create(ScheduleFilterPage, {datos: idreserva});
+    me.scheduleFilterPage.present()
   }
 
   getReservaDetail(idreserva) {

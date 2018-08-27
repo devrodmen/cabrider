@@ -15,6 +15,8 @@ import { Data } from '../../providers/data';
   selector: 'page-account',
   templateUrl: 'account.html'
 })
+
+
 export class AccountPage {
   /*tabBarElement: any;
   splash = true;*/
@@ -29,7 +31,7 @@ export class AccountPage {
   imagen: string;
   permiso: string;
   imageURI:any;
-  imageFileName:any;
+
   public documento = "";
 
   constructor(
@@ -63,6 +65,19 @@ export class AccountPage {
       me.tabBarElement.style.display = 'flex';
     }, 4000);
   }*/
+
+  ionViewWillEnter()
+  {
+    this.getUsername();
+    this.getDocumento();
+    this.getEmail();
+    this.getEstado();
+    this.getIdpersona();
+    this.getImagen();
+    this.getNombres();
+    this.getNomRol();
+    this.getPermiso();
+  }
 
   getImage() {
     const options: CameraOptions = {
@@ -100,7 +115,6 @@ export class AccountPage {
     , options)
       .then((data) => {
       console.log(data);
-      this.imageFileName = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/user.jpg"
       loader.dismiss();
       this.presentToast("Imagen cargada satisfactoriamente");
     }, (err) => {
