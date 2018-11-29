@@ -1,16 +1,6 @@
-<!--<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
-  <div class="flb">
-    <div class="Aligner-item Aligner-item--top"></div>
-    <img src="assets/logo-remisse.png">
-    <div class="Aligner-item Aligner-item--bottom"></div>
-  </div>
-</div>-->
-
 <ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
 	<div class="login-container">
 	  <img class="logo" src="./assets/logo.png" />
-	  
-	  <!--*********** Form ***********-->
 	  <form #loginForm="ngForm" novalidate>
 		<ion-item>
 				<ion-label floating>Usuario</ion-label>
@@ -33,22 +23,18 @@
 
 		<ion-row responsive-sm>
 			<ion-col>
-				<button ion-button (click)="onLogin(loginForm)" type="submit" block color="blue2">Ingresar</button>
+				<button ion-button (click)="onLogin(loginForm)" type="submit" block>Ingresar</button>
 			</ion-col>
 		</ion-row>
 		<ion-row>
-			<ion-label>Registrarme como:</ion-label>
+			<ion-label>Creado por:</ion-label>
 		</ion-row>
 		<div class="ion-row">
 			<ion-col>
 					<ion-label>Rosa Valencia</ion-label>
-			</ion-col>
-			<ion-col>
 					<ion-label>Heber Rodriguez</ion-label>
-				</ion-col>
-				<ion-col>
-						<ion-label>Michael Rojas</ion-label>
-					</ion-col>
+					<ion-label>Michael Rojas</ion-label>
+			</ion-col>
 		</div>
 	</form>
 	</div>

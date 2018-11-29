@@ -25,8 +25,6 @@ import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
-import { AutocompletePage } from '../pages/map/autocomplete/autocomplete';
-import { AutocompleteDestinoPage } from '../pages/map/autocomplete-destino/autocomplete-destino';
 import { ReservaPage } from '../pages/reserva/reserva';
 import { ReservaClientePage } from '../pages/reserva-cliente/reserva-cliente';
 import { AddPersonalPage } from '../pages/add-personal/add-personal';
@@ -68,8 +66,6 @@ import { HomePage } from '../pages/home/home';
     SessionDetailPage,
     SignupPage,
     TabsPage,
-    AutocompletePage,
-    AutocompleteDestinoPage,
     ReservaPage,
     ReservaClientePage,
     AddPersonalPage,
@@ -112,8 +108,6 @@ import { HomePage } from '../pages/home/home';
     SessionDetailPage,
     SignupPage,
     TabsPage,
-    AutocompletePage,
-    AutocompleteDestinoPage,
     ReservaPage,
     ReservaClientePage,
     AddPersonalPage,

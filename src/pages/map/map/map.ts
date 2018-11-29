@@ -8,7 +8,6 @@ import { Platform, ViewController, NavController, ModalController } from 'ionic-
 /**
  * Modal Autocomplete
  */
-import { AutocompletePage } from '../autocomplete/autocomplete';
 import { ReservaPage } from '../../reserva/reserva';
 
 declare var google: any;
@@ -74,135 +73,38 @@ export class MapPage {
      * Autocomplete places
      */
   }
-
-  /*ionViewDidLoad() {
-    let me = this;
-      this.confData.getMap().subscribe((mapData: any) => {
-        var mapEle = this.mapElement.nativeElement;
-
-        var map = new google.maps.Map(mapEle, {
-          center: mapData.find((d: any) => d.center),
-          zoom: 16
-        });
-
-        me.directionsService = new google.maps.DirectionsService;
-        me.directionsDisplay = new google.maps.DirectionsRenderer({
-          draggable: true,
-          map: map
-        });
-
-        me.directionsDisplay.addListener('directions_changed', function() {
-          let directions = me.directionsDisplay.getDirections();
-          let info = directions.routes[0].legs[0];
-          me.origlat = info.start_location.lat();
-          me.origlon = info.start_location.lng();
-          me.destlat = info.end_location.lat();
-          me.destlon = info.end_location.lng();
-          me.origen = info.start_address;
-          me.destino = info.end_address;
-        });
-
-
-        google.maps.event.addListenerOnce(map, 'idle', () => {
-          mapEle.classList.add('show-map');
-        });
-      });
-  }*/
+  
 
   openModal() {
     let me = this;
-    const autocomplete = this.modal.create(AutocompletePage);
-    autocomplete.present();
-
-    autocomplete.onDidDismiss((data) => {
       this.confData.getMap().subscribe((mapData: any) => {
-        console.log(mapData);
-        if(data === undefined)  {
-          
-        } else {
           
           me.mapEle = this.mapElement.nativeElement;
           if(me.mapEle != undefined) {
             me.map = new google.maps.Map(me.mapEle, {
-              center: {lat: -16.358803, lng: -71.5510502},
-              zoom: 16,
+              center: {lat: -16.398861, lng: -71.536972},
+              zoom: 13,
               disableDefaultUI: true
-            });
-        
-            me.directionsService = new google.maps.DirectionsService;
-            me.directionsDisplay = new google.maps.DirectionsRenderer({
-              draggable: true,
-              map: me.map
-            });
-        
-            me.directionsDisplay.addListener('directions_changed', function() {
-              let directions = me.directionsDisplay.getDirections();
-              let info = directions.routes[0].legs[0];
-              me.origlat = info.start_location.lat();
-              me.origlon = info.start_location.lng();
-              me.destlat = info.end_location.lat();
-              me.destlon = info.end_location.lng();
-              me.origen = info.start_address;
-              me.destino = info.end_address;
-            });
-        
-            google.maps.event.addListenerOnce(me.map, 'idle', () => {
-              me.mapEle.classList.add('show-map');
             });
           }
 
-          this.origen = data.origen;
-          this.origenexacto = data.origenexacto;
-          this.destinoexacto = data.destinoexacto;
-          this.origlat = data.orilat;
-          this.origlon = data.orilon;
-          this.originPlaceId = data.originPlaceId;
-          this.destino = data.destino;
-          this.destlat = data.deslat;
-          this.destlon = data.deslon;
-          this.destinationPlaceId = data.destinationPlaceId;
-
-          this.route(data);
-        }
+          google.maps.event.addListenerOnce(this.map, 'idle', () => {
+            let marker = new google.maps.Marker({
+              position: {lat: -16.398861, lng: -71.536972},
+              map: this.map,
+              draggable: true,
+              title: 'MARCADOR DEL GRUPO'
+            });
+            me.mapEle.classList.add('show-map');
+          });
       });
-    });
-  }
-
-  route(data) {
-    let me = this;
-    me.directionsService.route({
-      origin: data.orilat + "," + data.orilon,
-      destination: data.deslat + "," + data.deslon,
-      travelMode: this.travelMode
-    }, function(response, status) {
-      if(status === 'OK') {
-        me.directionsDisplay.setDirections(response);
-      } else {
-        window.alert('Las direcciones han fallado por ' + status);
-      }
-    })
-  }
-
-  getRuta(directions) {
-    let info = directions.routes[0].legs[0];
-    this.origlat = info.start_location.lat();
-		this.origlon = info.start_location.lng();
-		this.destlat = info.end_location.lat();
-		this.destlon = info.end_location.lng();
-		this.origen = info.start_address;
-		this.destino = info.end_address;
+    
   }
 
   continuar() {
     let me = this;
-    if(me.origen == '' || me.origenexacto == '' || me.destino == '' || me.destinoexacto == ''){
-      alert("Debe llenar todos los campos para poder continuar.");
-      
-    } else {
       console.log(me.origen);
-      console.log(me.origenexacto);
       console.log(me.destino);
-      console.log(me.destinoexacto);
       const myData = {
         origenplaceid: this.originPlaceId,
         origen: this.origen,
@@ -217,6 +119,5 @@ export class MapPage {
       }
 
       this.nav.push(ReservaPage, {data: myData});
-    }
   }
 }

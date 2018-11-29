@@ -33,11 +33,11 @@ export class ScheduleFilterPage{
   public person_image;
   public movil_image;
   public load = 0;
-  public idreserva;
+  public grupo_id;
   public icons = {
     start: new google.maps.MarkerImage(
     // URL
-    'http://rfacturacion.remisse21.com.pe/public/markers/home-2.png',
+    'http://rfacturacion.djremisse21sac.com/public/markers/home-2.png',
     // (width,height)
     new google.maps.Size(40, 40),
     // The origin point (x,y)
@@ -46,7 +46,7 @@ export class ScheduleFilterPage{
     new google.maps.Point(22, 32)),
     end: new google.maps.MarkerImage(
     // URL
-    'http://rfacturacion.remisse21.com.pe/public/markers/finish.png',
+    'http://rfacturacion.djremisse21sac.com.pe/public/markers/finish.png',
     // (width,height)
     new google.maps.Size(40, 40),
     // The origin point (x,y)
@@ -55,7 +55,7 @@ export class ScheduleFilterPage{
     new google.maps.Point(22, 32)),
     car: new google.maps.MarkerImage(
     // URL
-    'http://rfacturacion.remisse21.com.pe/public/markers/car.png',
+    'http://rfacturacion.djremisse21sac.com.pe/public/markers/car.png',
     // (width,height)
     new google.maps.Size(40, 40),
     // The origin point (x,y)
@@ -86,15 +86,12 @@ export class ScheduleFilterPage{
 
   ionViewDidLoad() {
     this.load = 1;
-    this.idreserva = this.navParams.get('datos');
+    this.grupo_id = this.navParams.get('datos');
     this.map = this.iniciarMapa();
-    this.getReservaDetail(this.idreserva);
+    this.getGrupoDetail(this.grupo_id);
   }
 
   ionViewWillLeave(){
-    //if(this.load = 1){
-      //this.viewCtrl.dismiss();
-    //}
   }
 
   iniciarMapa() {
@@ -111,37 +108,12 @@ export class ScheduleFilterPage{
     return map;
   }
 
-  getReservaDetail(idreserva) {
-
+  getGrupoDetail(idreserva) {
     let me = this;
-
-    /*if(idreserva == null || idreserva == undefined) {
-      me.datos = dataRes;
-      me.person_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.persona_imagen;
-      me.movil_image = "http://144.217.7.226/remisse21/public/personal/imagenes/" + me.datos.movil_imagen;
-      if(me.datos.reserva_estado != 4) {
-        me.construir(
-          me.datos.movil_placa,
-          me.datos.reserva_origenlat,
-          me.datos.reserva_origenlng,
-          me.datos.reserva_destinolat,
-          me.datos.reserva_destinolng
-        );
-      } else {
-        me.construir(
-          me.datos.movil_placa,
-          me.datos.reserva_origenlat,
-          me.datos.reserva_origenlng,
-          me.datos.reserva_destinolat,
-          me.datos.reserva_destinolng
-        );
-      }
-    }*/
-
-    me.data.getReservaDetail(idreserva).then((result) => {
+    me.data.getGrupoDetail(idreserva).then((result) => {
       me.datos = result;
-      me.person_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.persona_imagen;
-      me.movil_image = "http://rfacturacion.remisse21.com.pe/public/personal/imagenes/" + me.datos.movil_imagen;
+      me.person_image = "http://rfacturacion.djremisse21sac.com/public/personal/imagenes/" + me.datos.persona_imagen;
+      me.movil_image = "http://rfacturacion.djremisse21sac.com/public/personal/imagenes/" + me.datos.movil_imagen;
       if(me.datos.reserva_estado != 4) {
         me.construir(
           me.datos.movil_placa,

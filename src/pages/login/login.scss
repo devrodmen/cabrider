@@ -1,5 +1,8 @@
 page-login {
-  
+  button {
+    background: #1e1c7c;
+  }
+
   ion-content {
     background-size: cover;
     background-repeat: no-repeat;
@@ -56,6 +59,7 @@ page-login {
     z-index: 2;
   }
   ion-button {
+    background: #1e1c7c;
     opacity: 0.8;
   }
   

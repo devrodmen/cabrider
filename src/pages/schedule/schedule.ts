@@ -66,7 +66,7 @@ export class SchedulePage {
   updateSchedule() {
     let me = this;
     me.userData.getInt('idusuario').then((idusuario) => {
-      me.data.getReservas(idusuario).then((response) => {
+      me.data.getGrupos(idusuario).then((response) => {
         if(response != false) {
           me.reservas = response
         } else {
@@ -76,15 +76,20 @@ export class SchedulePage {
     });
   }
 
-  presentFilter(idreserva) {
+  presentFilter(grupo_id) {
     let me = this;
-    me.scheduleFilterPage = this.modalCtrl.create(ScheduleFilterPage, {datos: idreserva});
+    me.scheduleFilterPage = this.modalCtrl.create(ScheduleFilterPage, {datos: grupo_id});
     me.scheduleFilterPage.present()
   }
 
   getReservaDetail(idreserva) {
     let me = this;
     me.presentFilter(idreserva);
+  }
+
+  getGrupoDetail(grupo_id){
+    let me = this;
+    me.presentFilter(grupo_id);
   }
 
   addFavorite(slidingItem: ItemSliding, sessionData: any) {

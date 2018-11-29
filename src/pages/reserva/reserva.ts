@@ -34,10 +34,10 @@ export class ReservaPage {
   public destlon = "";
   public origenplaceid = "";
   public destinoplaceid = "";
-  public tipopago = 2;
-  public modelo = "";
+  public direccion = "";
+  public tipo = "";
   public permiso = "";
-  public observacion = "";
+  public nombre = "";
   areas : any;
   tipopagos : any;
   tipovehiculos : any;
@@ -97,9 +97,9 @@ export class ReservaPage {
     
   }
 
-  reservar() {
+  grabar() {
     let me = this;
-    me.confirmacion("Confirmación", "Está seguro que desea realizar la reserva?");
+    me.confirmacion("Confirmación", "Está seguro que desea grabar el grupo?");
   }
 
   confirmacion(title, message) {
@@ -128,8 +128,6 @@ export class ReservaPage {
 
   prepararDatos() {
     let me = this;
-    /*let idpermiso;
-    let myData;*/
 
     me.getIdUsuario().then(usuario => {
       me.getPermiso(usuario);
@@ -165,18 +163,18 @@ export class ReservaPage {
       "&destlon=" + me.destlon +
       "&origenplaceid=" + me.origenplaceid +
       "&destinoplaceid=" + me.destinoplaceid +
-      "&tipopago=" + me.tipopago +
-      "&modelo=" + me.modelo +
+      "&direccion=" + me.direccion +
+      "&tipo=" + me.tipo +
       "&idusuario=" + idusuario +
       "&idpermiso=" + idpermiso +
-      "&observacion=" + me.observacion
+      "&nombre=" + me.nombre
     );
 
-    me.data.registrarReserva(myData, me.pasajeros, "registrarReserva").then((response) => {
+    me.data.registrarReserva(myData, me.pasajeros, "registrarGrupo").then((response) => {
       if(response["respuesta"] == true) {
         let alert = me.alertCtrl.create({
           title: "Correcto!",
-          message: "Se registró su reserva satisfactoriamente.",
+          message: "Se grabó el grupo satisfactoriamente.",
           buttons: ['Ok']
         });
         alert.present();
@@ -188,31 +186,5 @@ export class ReservaPage {
 
   getIdPermiso() {
     return this.userDataLogin.getInt("idpermiso");
-  }
-
-  continuar() {
-    let me = this;
-    const myData = {
-      fecha: me.fecha,
-      hora: me.hora,
-      encargado: me.encargado,
-      gerencia: me.gerencia,
-      centro: me.centro,
-      origen: me.origen,
-      origenexacto: me.origenexacto,
-      destinoexacto: me.destinoexacto,
-      origenlat: me.origlat,
-      origenlon: me.origlon,
-      origenplaceid: me.origenplaceid,
-      destino: me.destino,
-      destinolat: me.destlat,
-      destinolon: me.destlon,
-      destinoplaceid: me.destinoplaceid,
-      tipopago: me.tipopago,
-      modelo: me.modelo,
-      observacion: me.observacion
-    }
-
-    this.navCtrl.push(ReservaClientePage, {data: myData});
   }
 }

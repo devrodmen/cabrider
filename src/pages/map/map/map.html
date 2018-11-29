@@ -20,7 +20,7 @@
         </ion-item>
         <ion-item>
           <ion-icon color="primary" name="calendar" item-start></ion-icon>
-          <ion-label>Definir Horas</ion-label>
+          <ion-label>Ingresar datos</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon color="primary" name="bus" item-start></ion-icon>
@@ -40,8 +40,8 @@
   <div class="bottom request-controls">
     <ion-row>
       <ion-col width-100>
-        <button full ion-button color="light" large class="btnDefinir" (click)="openModal()">
-          DEFINIR RUTA
+        <button *ngIf="map == ''" full ion-button color="light" large class="btnDefinir" (click)="openModal()">
+          DEFINIR MARCADOR
         </button>
         <button full ion-button large class="btnContinuar" (click)="continuar()">
           CONTINUAR

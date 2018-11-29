@@ -8,7 +8,7 @@ import { AccountPage } from '../pages/account/account';
 
 import { UserDataLogin } from '../providers/user-data-login';
 
-let apiUrl = 'https://www.remisse21.com.pe/apk/';
+let apiUrl = 'http://rfacturacion.djremisse21sac.com/apk/';
 
 @Injectable()
 export class Data {
@@ -35,11 +35,11 @@ export class Data {
     return this.getDataParam('getPersonales', data);
   }
 
-  getReservas(idusuario) {
+  getGrupos(idusuario) {
     let data = (
       'idusuario=' + idusuario
     );
-    return this.getDataParam('getReservas', data);
+    return this.getDataParam('getGrupos', data);
   }
 
   getReservaDetail(idreserva) {
@@ -48,6 +48,13 @@ export class Data {
     );
     return this.getDataParam('getReservaDetail', data);
   }
+
+  getGrupoDetail(grupo_id) {
+    let data = (
+      'grupo_id=' + grupo_id
+    );
+    return this.getDataParam('getGrupoDetail', data);
+  }  
   
   getAreas() {
     return this.getData('getAreas');

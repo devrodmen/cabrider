@@ -4,7 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-let apiUrl = 'https://www.remisse21.com.pe/apk_login/';
+let apiUrl = 'http://rfacturacion.djremisse21sac.com/apk_login/';
 
 
 @Injectable()
