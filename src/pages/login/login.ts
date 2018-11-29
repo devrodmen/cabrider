@@ -26,8 +26,8 @@ export class LoginPage {
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
   responseData : any;
   loginForm: any;
-  public backgroundImage: any = "http://rfacturacion.remisse21.com.pe/public/app/bg1.jpg";
-  imgLogo: any = "http://rfacturacion.remisse21.com.pe/public/app/medium_150.70391061453px_1202562_easyicon.net.png";
+  public backgroundImage: any = "./assets/bg1.jpg";
+  //imgLogo: any = "http:s//rfacturacion.remisse21.com.pe/public/app/medium_150.70391061453px_1202562_easyicon.net.png";
   errorMessage: String;
   login: UserOptions = { username: '', password: '', imagen: '',idpersona: '',permiso:'',nombres:'',email:'',estado: '',nombrerol: '',dni:'' };
   submitted = false;
@@ -56,13 +56,9 @@ export class LoginPage {
     this.submitted = true;
     let me = this;
 
-    if (form.valid) {
-      var userData = (
-        'usuario=' + this.login.username +
-        '&clave=' + this.login.password
-      );
+   
       
-      this.userDataLogin.postData(userData, 'iniciarSesionCliente').then((response) => {
+      /*this.userDataLogin.postData(userData, 'iniciarSesionCliente').then((response) => {
         me.responseData = response;
         if(response != false) {      
           window["plugins"].OneSignal
@@ -75,33 +71,31 @@ export class LoginPage {
               me.userDataLogin.postData(data, 'actualizarTokenCliente').then((response) => {
                 console.log(response);
               });
-          });
+          });*/
 
           me.storage.set(me.HAS_LOGGED_IN, true);
-          me.userDataLogin.setString('username', me.login.username);
-          me.userDataLogin.setString('password', me.login.password);
-          me.userDataLogin.setString('documento',me.responseData.dni);
-          me.userDataLogin.setString('imagen',me.responseData.imagen);
-          me.userDataLogin.setString('nombres',me.responseData.nombapel);
-          me.userDataLogin.setString('email',me.responseData.email);
-          me.userDataLogin.setInt('idpersona',me.responseData.idpersona);
-          me.userDataLogin.setInt('idempresa',me.responseData.idempresa);
-          me.userDataLogin.setInt('estado',me.responseData.estado);
-          me.userDataLogin.setInt('idpermiso',me.responseData.permiso);
-          me.userDataLogin.setInt('idusuario',me.responseData.idusuario);
-          me.userDataLogin.setString('nom_rol',me.responseData.nom_rol);
-          me.userDataLogin.setString('permiso',me.responseData.permiso);
+          me.userDataLogin.setString('username', 'TEST');
+          me.userDataLogin.setString('password', 'TEST');
+          me.userDataLogin.setString('documento','TEST');
+          me.userDataLogin.setString('imagen','TEST');
+          me.userDataLogin.setString('nombres','TEST');
+          me.userDataLogin.setString('email','TEST');
+          me.userDataLogin.setInt('idpersona', 1);
+          me.userDataLogin.setInt('idempresa',1);
+          me.userDataLogin.setInt('estado',1);
+          me.userDataLogin.setInt('idpermiso',1);
+          me.userDataLogin.setInt('idusuario',1);
+          me.userDataLogin.setString('nom_rol','TEST');
+          me.userDataLogin.setString('permiso','TEST');
           me.events.publish('user:login');
-          if(me.responseData.dni == null) {
-            me.navCtrl.setRoot(ActualizarInfoPage);
-          } else {
+
             me.navCtrl.setRoot(AccountPage);
-          }
-        } else {
+          
+        /*} else {
           me.presentAlert();
         }
-      });
-    }
+      });*/
+    
   }
 
   onSignup(type) {

@@ -43,8 +43,8 @@ export class ConferenceApp {
   // the login page disables the left menu
   
   loggedInPages: PageInterface[] = [
-    { title: 'Reservas', name: 'SchedulePage', component: SchedulePage, icon: 'car' },
-    { title: 'Nueva Reserva', name: 'MapPage', component: MapPage, icon: 'map' },
+    { title: 'Grupos', name: 'SchedulePage', component: SchedulePage, icon: 'car' },
+    { title: 'Nuevo Grupo', name: 'MapPage', component: MapPage, icon: 'map' },
     { title: 'Perfil', name: 'AccountPage', component: AccountPage, icon: 'person' },
     { title: 'Cerrar Sesión', name: 'LoginPage', component: LoginPage, icon: 'log-out', logsOut: true }
   ];
@@ -146,7 +146,7 @@ export class ConferenceApp {
     me.platform.ready().then(() => {
       me.splashScreen.hide();
 
-      var notificationOpenedCallback = function(json) {
+      /*var notificationOpenedCallback = function(json) {
         let jsonData = json["notification"]["payload"]["additionalData"];
         let idreserva = jsonData["idreserva"];
         let datosRes = jsonData["datos"];
@@ -157,15 +157,6 @@ export class ConferenceApp {
             datos: idreserva,
             data: datosRes
           };
-
-          /*let alert = me.alertCtrl.create({
-            title: "Movil asignada",
-            message: "Se le asignó una movil",
-            buttons: ['Ok']
-          });
-          alert.present();*/
-          
-          //me.nav.setRoot(ScheduleFilterPage, obj);
           
 
           let modal = me.modalCtrl.create(ScheduleFilterPage, obj);
@@ -178,10 +169,6 @@ export class ConferenceApp {
           });
           alert.present();
         } else if (tipo == "anular") {
-          /*let obj = {
-            datos: idreserva,
-            data: datosRes
-          };*/
           
           let alert = me.alertCtrl.create({
             title: "Reserva rechazada",
@@ -192,14 +179,13 @@ export class ConferenceApp {
         } else if (tipo == "finalizar") {
           let modal = me.modalCtrl.create(CalificatePage, {idreserva: idreserva});
           modal.present();
-          //me.nav.setRoot(CalificatePage, {idreserva: idreserva});
         }
       };
 
       window["plugins"].OneSignal
         .startInit("5399e703-5c11-4c3e-b11d-075c9896b128", "955681932238")
         .handleNotificationOpened(notificationOpenedCallback)
-        .endInit();
+        .endInit();*/
     });
   }
 

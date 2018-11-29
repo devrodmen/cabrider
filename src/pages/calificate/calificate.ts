@@ -60,7 +60,6 @@ export class CalificatePage {
 
   dismiss() {
     //window.location.reload();
-    let me = this;
     this.viewCtrl.dismiss();
   }
 }
